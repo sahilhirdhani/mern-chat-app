@@ -12,8 +12,17 @@ export const signup = async(req,res) => {
             return res.status(400).json({ error: "Username is required" });
         }
 
-        if (!fullName || !password || !confirmPassword || !gender) {
-            return res.status(400).json({ error: "All fields are required" });
+        if (!fullName) {
+            return res.status(400).json({ error: "Full name is required" });
+        }
+        if (!confirmPassword) {
+            return res.status(400).json({ error: "confirmPassword is required" });
+        }
+        if (!password) {
+            return res.status(400).json({ error: "password is required" });
+        }
+        if (!gender) {
+            return res.status(400).json({ error: "gender is required" });
         }
 
         if(password!==confirmPassword){
